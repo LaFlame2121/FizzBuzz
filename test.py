@@ -1,17 +1,22 @@
-class Fb:
-    def __init__(self, nummer):
-        self.nummer = nummer
+from fizzbuzz import FizzBuzz
 
-    def __str__(self):
-        return "FizzBuzz!"
 
-    def fizz_buzz(self):
-        for i in range(1, self.nummer + 1):
-            if i % 3 == 0:
-                print("Fizz!")
-            elif i % 5 == 0:
-                print("Buzz!")
-            elif i % 15 == 0:
-                print("FizzBuzz!")
-            else:
-                print(i)
+class TestFizzBuzz:
+
+    def test_fizz(self):
+        fizzbuzz_lijst = FizzBuzz(100).fizz_buzz()
+        for i in range(0, len(fizzbuzz_lijst)):
+            if (i+1) % 3 == 0:
+                assert fizzbuzz_lijst[i] == "Fizz!"
+
+    def test_buzz(self):
+        fizzbuzz_lijst = FizzBuzz(100).fizz_buzz()
+        for i in range(0, len(fizzbuzz_lijst)):
+            if (i + 1) % 5 == 0:
+                assert fizzbuzz_lijst[i] == "Buzz!"
+
+    def test_fizzbuzz(self):
+        fizzbuzz_lijst = FizzBuzz(100).fizz_buzz()
+        for i in range(0, len(fizzbuzz_lijst)):
+            if (i + 1) % 15 == 0:
+                assert fizzbuzz_lijst[i] == "FizzBuzz!"
